@@ -33,6 +33,11 @@ public class AquaSimApplication
         aqua = new Aquarium(1000, 1000); // ... object that has now been created
 
         // Construct fish and add them to the aquarium.
+      
+        Random generator = new Random();
+        int randNum;
+        randNum = generator.nextInt(10);
+        randNum = generator.nextInt(10);
         //      CODE MISSING HERE!
         //Add AquaFish into Aquarium;
         
