@@ -30,7 +30,7 @@ public class AquaSimApplication
 
         // Construct the aquarium.  Specify its dimensions when creating it.
         Aquarium aqua;                 // create reference to an Aquarium ...
-        aqua = new Aquarium(500, 500); // ... object that has now been created
+        aqua = new Aquarium(100, 200); // ... object that has now been created
 
         // Construct fish and add them to the aquarium.
         //      CODE MISSING HERE!
@@ -78,24 +78,19 @@ public class AquaSimApplication
         ACT.moveForward();
         userInterface.showAquarium();
         
-        if(GPA.atWall()==true)
-        {
-            GPA.changeDir();
-            GPA.moveForward();
-            userInterface.showAquarium();
-        }
-        if(SAT.atWall()==true)
-        {
-            SAT.changeDir();
-            SAT.moveForward();
-           userInterface.showAquarium();
-        }
-        if(ACT.atWall()==true)
+        
+        if(ACT.atWall()||SAT.atWall()||GPA.atWall())
         {
             ACT.changeDir();
+            GPA.changeDir();
+            SAT.changeDir();
+        }
+        
+            GPA.moveForward();
+            SAT.moveForward();
             ACT.moveForward();
             userInterface.showAquarium();
-        }
+       
 
         // WRAP UP.
 
