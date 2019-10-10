@@ -22,36 +22,29 @@ public class AquaSimApplication
      *  This is the main function.  It executes the program.
      *  @param    String args[] is never used
      **/
+    private static Random generator;
+    
     public static void main(String args[])
     {
         System.out.println("Hello people");
 
         // CONSTRUCT OBJECTS NEEDED FOR THE AQUARIUM SIMULATION.
-
+       generator = new Random();
         // Construct the aquarium.  Specify its dimensions when creating it.
         Aquarium aqua;                 // create reference to an Aquarium ...
         aqua = new Aquarium(1000, 1000); // ... object that has now been created
 
         // Construct fish and add them to the aquarium.
-      
-        Random generator = new Random();
-        int randNum;
-        randNum = generator.nextInt(10);
-        randNum = generator.nextInt(10);
         //      CODE MISSING HERE!
         //Add AquaFish into Aquarium;
+    
+        AquaFish GPA = new AquaFish(aqua, getColor());
+        AquaFish SAT = new AquaFish(aqua, getColor());
+        AquaFish ACT = new AquaFish(aqua, getColor());
         
-        AquaFish GPA = new AquaFish(aqua, Color.RED);
-         aqua.add(GPA);
-      
-         
-            
-        AquaFish SAT = new AquaFish(aqua, Color.YELLOW);
-        aqua.add(SAT);
-        
-        
-        AquaFish ACT = new AquaFish(aqua, Color.RED);
         aqua.add(ACT);
+        aqua.add(SAT);
+        aqua.add(GPA);
         
  
 
@@ -87,26 +80,61 @@ public class AquaSimApplication
         for(;;)
         {
         
-            if(ACT.atWall()||SAT.atWall()||GPA.atWall())
+            if(ACT.atWall())
         {
             ACT.changeDir();
-            GPA.changeDir();
-            SAT.changeDir();
-            
+            ACT.moveForward();  
         }
-        
-            GPA.moveForward();
+        if(SAT.atWall())
+        {
+            SAT.changeDir();
             SAT.moveForward();
-            ACT.moveForward();
-            userInterface.showAquarium();
-        
+        }
+        if(GPA.atWall())
+        {
+            GPA.changeDir();
+            GPA.moveForward();
+        }
+        userInterface.showAquarium();
+    }
 
         // WRAP UP.
 
         // Remind user how to quit application.
-        userInterface.println ("Close GUI display window to quit.");
+        //userInterface.println ("Close GUI display window to quit.");
 
-    }//end main
+     }//end main
+    
+    
+    
+       public static Color getColor()
+     {
+        int randNum = generator.nextInt(10);
+        if(randNum==0)
+            return Color.RED;
+         else if(randNum==1)
+            return Color.BLUE;
+         else if(randNum==2)
+            return Color.GREEN;
+         else if(randNum==3)
+            return Color.BLUE;
+         else if(randNum==4)
+            return Color.BLACK;
+         else if(randNum==5)
+            return Color.RED;
+         else if(randNum==6)
+            return Color.YELLOW;
+         else if(randNum==7)
+            return Color.WHITE;
+         else if(randNum==8)
+            return Color.BLUE;
+         else if(randNum==9)
+            return Color.PINK;
+         else 
+            return Color.RED;
+        }
+            
+            
+        
+ }//end class
 
-}//end class
-}
