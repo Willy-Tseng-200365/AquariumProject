@@ -76,7 +76,13 @@ public class AquaSimApplication
         SAT.moveForward();
         ACT.moveForward();
         userInterface.showAquarium();
-        
+        int fishMove = 10;
+        while(int fishMoved =0;fishMoved <= fishMove;fishMoved++){
+            GPA.moveForward();
+            SAT.moveForward();
+            ACT.moveForward();
+         userInterface.showAquarium
+        }
         for(;;)
         {
         
@@ -127,11 +133,11 @@ public class AquaSimApplication
          else if(randNum==7)
             return Color.WHITE;
          else if(randNum==8)
-            return Color.BLUE;
+            return Color.BLACK;
          else if(randNum==9)
             return Color.PINK;
          else 
-            return Color.RED;
+            return Color.MAGENTA;
         }
             
             
